@@ -1,1 +1,4 @@
-YAML
+run: |
+  curl -X POST https://abc123.ngrok.io/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"event":"${{ github.event_name }}","author":"${{ github.actor }}","to_branch":"${{ github.ref_name }}","timestamp":"${{ github.event.head_commit.timestamp }}"}'
